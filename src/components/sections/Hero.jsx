@@ -7,7 +7,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex flex-col justify-between pt-36 pb-12 bg-black overflow-hidden select-none border-none outline-none">
+    <section className="relative min-h-screen w-full flex flex-col justify-between pt-[105px] pb-12 bg-black overflow-hidden select-none border-none outline-none">
       {/* Whole background CNC machining image extending fully behind header */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80 scale-105 transition-transform duration-1000"
@@ -18,15 +18,15 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-black/20 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none" />
 
-      {/* Hero Content Layer - Flush Left Aligned Container */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-12 flex-1 flex flex-col justify-center pt-8">
-        {/* Top Tagline - Exactly aligned with left edge of KAILASH */}
+      {/* Hero Content Layer - Flush Left Aligned Container with 15px top spacing below header */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 sm:px-12 flex-1 flex flex-col justify-center pt-[15px]">
+        {/* Top Tagline with 15px top margin */}
         <div className="text-xs sm:text-sm font-mono tracking-[0.25em] text-[#FF4500] uppercase mb-3 font-bold">
           EST. PRECISION ENGINEERING
         </div>
 
-        {/* Big Bold Heading slightly smaller for perfect visual balance */}
-        <h1 className="font-black text-6xl sm:text-8xl lg:text-[125px] xl:text-[145px] leading-[0.84] tracking-[-0.04em] text-left uppercase font-['Cabinet_Grotesk',sans-serif]">
+        {/* Big Bold Heading matching reference screenshot */}
+        <h1 className="font-black text-6xl sm:text-8xl lg:text-[125px] xl:text-[145px] leading-[0.82] tracking-[-0.04em] text-left uppercase font-['Cabinet_Grotesk',sans-serif]">
           <span className="block text-white drop-shadow-lg">KAILASH</span>
           <span className="block text-white drop-shadow-lg">ENGINEERING</span>
           <span className="block text-[#FF4500] drop-shadow-lg">WORKS</span>
@@ -59,7 +59,7 @@ export default function Hero() {
           <div className="flex justify-start md:justify-end">
             <button
               onClick={() => scrollTo("contact")}
-              className="px-8 py-4 bg-[#FF4500] hover:bg-[#E63946] text-black font-extrabold font-mono text-xs uppercase tracking-widest flex items-center gap-3 transition-colors shadow-lg shadow-[#FF4500]/30"
+              className="px-8 py-4 bg-[#FF4500] hover:bg-[#FF5714] text-black font-extrabold font-mono text-xs uppercase tracking-widest flex items-center gap-3 transition-all duration-300 shadow-lg shadow-[#FF4500]/30"
             >
               REQUEST A QUOTE <ArrowRight className="w-4 h-4" />
             </button>

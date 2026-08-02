@@ -47,19 +47,20 @@ export const PRODUCTS = [
   { src: "/images/part_dual_branch_manifold.jpg", label: "3-Way Dual Branch Intake Manifold", spec: "CI Casting" },
   { src: "/images/part_flange_plate.jpg", label: "Rectangular Flange Connector", spec: "MS Component" },
   { src: "/images/part_elbow_joint.jpg", label: "Angled Pipe Elbow Joint Connector", spec: "CI Casting" },
-  { src: "/images/part_mounting_block.jpg", label: "Machined Block Mounting Cap", spec: "CI Casting" },
-  { src: "/images/part_semicircular_segment.jpg", label: "Semicircular Machined Block Segment", spec: "VMC Machined" },
-  { src: "/images/part_intake_manifold.jpg", label: "Curved Pipe Intake Manifold Casting", spec: "CI Casting" },
-  { src: "/images/real_clevis_part.jpg", label: "Precision Machined Clevis Bracket", spec: "MS Component" },
-  { src: "/images/real_volute_part.jpg", label: "Cast Iron Pump Volute Body", spec: "CI Casting" },
-  { src: "/images/part_arrow_cap.jpg", label: "Cast Iron Flow Valve Cap", spec: "CI Casting" },
-  { src: "/images/part_threaded_flange.jpg", label: "Threaded Spindle Mounting Flange", spec: "SG Iron" },
-  { src: "/images/part_housing_body.png", label: "Pump Volute Housing Casing", spec: "CI Casting" }
+  { src: "/images/part_mounting_block.jpg", label: "Suction Filter Head", spec: "CI Casting" },
+  { src: "/images/part_semicircular_segment.jpg", label: "Counter Unbalanced Weight", spec: "VMC Machined" },
+  { src: "/images/part_intake_manifold.jpg", label: "Manifold Exhaust", spec: "CI Casting" },
+  { src: "/images/real_clevis_part.jpg", label: "U Fork", spec: "MS Component" },
+  { src: "/images/real_volute_part.jpg", label: "Suction Filter Head", spec: "CI Casting" },
+  { src: "/images/part_arrow_cap.jpg", label: "Suction Filter Head", spec: "CI Casting" },
+  { src: "/images/part_threaded_flange.jpg", label: "Filter Mounting Cap", spec: "SG Iron" },
+  { src: "/images/part_housing_body.png", label: "Suction Filter Head - AGNI", spec: "CI Casting" }
 ];
 
 export const CONTACT = {
-  email: "info@kailashengineering.com",
-  phone: "+91 00000 00000",
-  address: "Industrial Estate, India",
+  email: "kailashengineeringworks2022@gmail.com",
+  phone: "+91 94090 13892",
+  address: "National Highway 8-B, Gondal Road, Near Bhagirath Marble, Rajkot, India",
+  mapUrl: "https://maps.app.goo.gl/oZELKHFGzUYR5WyR7",
   hours: "Mon – Sat / 09:00 – 18:00"
 };
