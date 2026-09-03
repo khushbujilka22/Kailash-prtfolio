@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { CONTACT } from "../../data";
 import { toast } from "sonner";
-import { Mail, Phone, MapPin, Clock, Send, ExternalLink, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, ExternalLink, AlertCircle } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
   const [emailError, setEmailError] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateEmail = (email) => {
+    // Regex checking for valid format name@domain.extension
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
     return emailRegex.test(email);
   };
@@ -23,7 +23,7 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     // Strict Email Validation Check
@@ -34,51 +34,17 @@ export default function Contact() {
     }
 
     setEmailError("");
-    setIsSubmitting(true);
-
-    try {
-      // Direct HTTP POST submit to FormSubmit endpoint delivering directly to kailashengineeringworks2022@gmail.com
-      const response = await fetch("https://formsubmit.co/ajax/kailashengineeringworks2022@gmail.com", {
-        method: "POST",
-        headers: { 
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: formData.name,
-          Email: formData.email,
-          Company: formData.company || "N/A",
-          Specifications: formData.message,
-          _subject: `New Kailash Portfolio Inquiry from ${formData.name}`,
-          _template: "table"
-        })
-      });
-
-      const resData = await response.json();
-
-      if (response.ok && resData.success !== "false") {
-        toast.success("Inquiry sent! Delivered directly to kailashengineeringworks2022@gmail.com");
-        setFormData({ name: "", email: "", company: "", message: "" });
-      } else {
-        // Fallback: Open prefilled mailto if endpoint requires first-time activation
-        const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
-        const body = encodeURIComponent(
-          `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'N/A'}\n\nRequirements:\n${formData.message}`
-        );
-        window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
-        toast.info("Opened email client to deliver your inquiry.");
-      }
-    } catch (error) {
-      // Fallback mailto trigger
-      const subject = encodeURIComponent(`Inquiry from ${formData.name}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'N/A'}\n\nRequirements:\n${formData.message}`
-      );
-      window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
-      toast.info("Opened email client to deliver your inquiry.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    
+    // Construct prefilled mailto link to send email directly to kailashengineeringworks2022@gmail.com
+    const subject = encodeURIComponent(`New Inquiry from ${formData.name} (${formData.company || 'Individual'})`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nCompany: ${formData.company || 'N/A'}\n\nSpecifications / Requirements:\n${formData.message}`
+    );
+    
+    window.location.href = `mailto:${CONTACT.email}?subject=${subject}&body=${body}`;
+    
+    toast.success("Opening email client to send inquiry to " + CONTACT.email);
+    setFormData({ name: "", email: "", company: "", message: "" });
   };
 
   return (
@@ -197,18 +163,9 @@ export default function Contact() {
           {/* Theme matched primary CTA button */}
           <button
             type="submit"
-            disabled={isSubmitting}
-            className="w-full py-4 bg-[#FF4500] hover:bg-[#FF5714] disabled:opacity-50 text-black font-black font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2.5 transition-all duration-300 shadow-lg shadow-[#FF4500]/25"
+            className="w-full py-4 bg-[#FF4500] hover:bg-[#FF5714] text-black font-black font-mono text-xs uppercase tracking-widest flex items-center justify-center gap-2.5 transition-all duration-300 shadow-lg shadow-[#FF4500]/25"
           >
-            {isSubmitting ? (
-              <>
-                SENDING INQUIRY... <Loader2 className="w-4 h-4 animate-spin" />
-              </>
-            ) : (
-              <>
-                SUBMIT INQUIRY <Send className="w-4 h-4" />
-              </>
-            )}
+            SUBMIT INQUIRY <Send className="w-4 h-4" />
           </button>
         </form>
       </div>

@@ -5,8 +5,9 @@ import { Hammer, Send } from "lucide-react";
 
 export default function ProductGallery() {
   const [filter, setFilter] = useState("ALL");
+  const [isExpanded, setIsExpanded] = useState(false);
 
-  const categories = ["ALL", "CI Casting", "SG Iron", "CNC Turned", "VMC Machined", "Forging", "MS Component"];
+  const categories = ["ALL", "CI Casting", "SG Iron", "CNC Turned", "VMC Machined", "Forging", "MS Component", "Trading"];
 
   const scrollToContact = () => {
     document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
@@ -33,7 +34,10 @@ export default function ProductGallery() {
           {categories.map((cat) => (
             <button
               key={cat}
-              onClick={() => setFilter(cat)}
+              onClick={() => {
+                setFilter(cat);
+                setIsExpanded(false);
+              }}
               className={`px-3 py-1.5 font-mono text-xs uppercase tracking-wider border transition-colors ${
                 filter === cat
                   ? "bg-[#FF4500] text-black border-[#FF4500] font-bold"
@@ -72,7 +76,7 @@ export default function ProductGallery() {
         </ScrollReveal>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product, idx) => (
+          {(isExpanded ? filteredProducts : filteredProducts.slice(0, 6)).map((product, idx) => (
             <ScrollReveal key={idx} delay={idx * 0.05} className="bg-[#111111] border border-[#2A2A2A] overflow-hidden group hover:border-[#FF4500] transition-colors">
               {/* White studio container background for crisp product visibility */}
               <div className="h-64 bg-white relative overflow-hidden flex items-center justify-center p-4">
@@ -90,6 +94,17 @@ export default function ProductGallery() {
               </div>
             </ScrollReveal>
           ))}
+        </div>
+      )}
+
+      {filter !== "Forging" && !isExpanded && filteredProducts.length > 6 && (
+        <div className="mt-12 flex justify-center">
+          <button
+            onClick={() => setIsExpanded(true)}
+            className="px-8 py-3 bg-[#111111] hover:bg-[#FF4500] text-zinc-300 hover:text-black border border-[#2A2A2A] hover:border-[#FF4500] font-extrabold font-mono text-xs uppercase tracking-widest transition-all duration-300"
+          >
+            Show All
+          </button>
         </div>
       )}
     </section>

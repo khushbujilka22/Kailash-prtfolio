@@ -54,7 +54,12 @@ export const PRODUCTS = [
   { src: "/images/real_volute_part.jpg", label: "Suction Filter Head", spec: "CI Casting" },
   { src: "/images/part_arrow_cap.jpg", label: "Suction Filter Head", spec: "CI Casting" },
   { src: "/images/part_threaded_flange.jpg", label: "Filter Mounting Cap", spec: "SG Iron" },
-  { src: "/images/part_housing_body.png", label: "Suction Filter Head - AGNI", spec: "CI Casting" }
+  { src: "/images/part_housing_body.png", label: "Suction Filter Head - AGNI", spec: "CI Casting" },
+  { src: "/images/new_ci_casting_1.png", label: "Exhaust Manifold", spec: "CI Casting" },
+  { src: "/images/new_ci_casting_2.png", label: "Suction Manifold", spec: "CI Casting" },
+  { src: "/images/new_ci_casting_3.png", label: "Exhaust Manifold", spec: "CI Casting" },
+  { src: "/images/new_ci_casting_4.png", label: "Suction Manifold", spec: "CI Casting" },
+  { src: "/images/trading_1.png", label: "852 mm Shaft", spec: "Trading" }
 ];
 
 export const CONTACT = {
